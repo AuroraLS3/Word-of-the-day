@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+
+        <title>Word of the day</title>
+        <meta name="description" content="Learn new words every day" />
+        <meta name="author" content="Rsl1122" />
+        <style>
+            .container {
+                display: flex;
+            }
+
+            #wikipedia, #wikionary {
+                width: 50%;
+                height: 90vh;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>Word of the day is: <span id="word"></span></h1>
+        <section class="container">
+            <section id="wikionary"></section>
+            <section id="wikipedia"></section>
+        </section>
+        <script src="main.js"></script>
+    </body>
+</html>
