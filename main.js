@@ -74,17 +74,13 @@ WordStorage = {
         for (result of related) {
             found.push(result.word);
         }
-        console.log(related, describing, found);
         return found;
     },
     pickAtRandom: async function () {
         if (!this.words.length) await this.loadNewCategory();
-        console.log(this.words);
         const index = Math.floor(Math.random() * this.words.length);
         const word = this.words[index];
         this.lookedAtWord(word);
-        console.log(word);
-        console.log(this.words);
         return word;
     },
     lookedAtWord: function (word) {
