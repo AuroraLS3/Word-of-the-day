@@ -70,12 +70,8 @@ WordStorage = {
     },
     findWordsRelatedTo: async function (category) {
         const related = await WordAPI.findWordsRelatedTo(category);
-        const describing = await WordAPI.findWordsDescribing(category);
         const found = [];
         for (result of related) {
-            found.push(result.word);
-        }
-        for (result of describing) {
             found.push(result.word);
         }
         console.log(related, describing, found);
