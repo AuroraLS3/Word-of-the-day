@@ -1,5 +1,5 @@
 WordAPI = {
-    apiUrl: "http://api.datamuse.com/words",
+    apiUrl: "https://api.datamuse.com/words",
     findWordsRelatedTo: async function (word) {
         const relatedToQuery = `?ml=${word}`;
         return await this.xmrJSONRequest(this.apiUrl + relatedToQuery);
