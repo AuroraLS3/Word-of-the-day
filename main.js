@@ -72,7 +72,7 @@ WordStorage = {
         const related = await WordAPI.findWordsRelatedTo(category);
         const found = [];
         for (result of related) {
-            found.push(result.word);
+            found.push({word: result.word, relatedTo: category});
         }
         return found;
     },
@@ -87,17 +87,25 @@ WordStorage = {
         this.words.splice(this.words.indexOf(word), 1);
         this.save();
     },
+    nextWord() {
+        location.reload();
+    },
+    clear: function() {
+        this.words = [];
+        this.save();
+        this.nextWord();
+    }
 };
 
 function generateWikipediaIFrame(word) {
-    return `<iframe src="https://en.wikipedia.org/wiki/${encodeURI(
-        word
+    return `<iframe src="https://en.m.wikipedia.org/wiki/${encodeURI(
+        word.word
     )}"></iframe>`;
 }
 
 function generateWikionaryIFrame(word) {
-    return `<iframe src="https://en.wiktionary.org/wiki/${encodeURI(
-        word
+    return `<iframe src="https://en.m.wiktionary.org/wiki/${encodeURI(
+        word.word
     )}"></iframe>`;
 }
 
@@ -108,7 +116,8 @@ async function main() {
 
     currentWord = await WordStorage.pickAtRandom();
 
-    document.getElementById("word").innerText = currentWord;
+    document.getElementById("word").innerText = currentWord.word;
+    document.getElementById("related-to").innerText = currentWord.relatedTo;
     document.getElementById("wikionary").innerHTML = generateWikionaryIFrame(
         currentWord
     );
