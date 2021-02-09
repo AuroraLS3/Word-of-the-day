@@ -1,7 +1,7 @@
 # Word-of-the-day
 A simple web page for learning different vocabularies one word per day
 
-- [Link to the app](https://rsl1122.github.io/Word-of-the-day/)
+- [Link to the app](https://aurorals3.github.io/Word-of-the-day/)
 
 ## How it works
 
